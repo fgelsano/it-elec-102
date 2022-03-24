@@ -62,6 +62,12 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,21 +85,22 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Hello Everyone!
-                </div>
+            <div class="content container">
+                <div class="row">
+                    @foreach ($blogs as $blog)
+                    <div class="col-sm-4 mt-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ $blog['title'] }}</h5>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($blog['body'], $limit = 150, $end = '...') }}</p> 
+                            <a href="#" class="btn btn-primary">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                    
+                  </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>
