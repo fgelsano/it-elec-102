@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/', 'FrontController@index');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about', 'HomeController@about');
-Route::get('/profile', 'ProfilesController@show');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/profile', 'ProfilesController@show')->name('profile');
+Route::get('/blogs', 'BlogsController@index');
+Route::post('/blogs/add', 'BlogsController@create');
+Route::resource('/restful','RestfulController');

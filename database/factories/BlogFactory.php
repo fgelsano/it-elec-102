@@ -8,9 +8,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Blog::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence(),
-        'body' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'thumbnail' => $faker->image($dir, $width, $height, 'cats', false),
-        'user_id' => $faker->randomDigit,
+        'title' => $this->faker->sentence(),
+        'body' => $this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+        'thumbnail' => $this->faker->image(),
+        'user_id' => $this->faker->randomDigit,
     ];
 });

@@ -10,6 +10,6 @@ class FrontController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('blog-index', compact('blogs'));
+        return view('index', compact('blogs'));
     }
 }
